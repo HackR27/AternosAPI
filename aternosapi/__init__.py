@@ -43,7 +43,7 @@ class AternosAPI(StatefulBrowser):
         if serverstatus == "Offline":
             return "Server Already Offline"
         else:
-            stopserver = requests.get(url=f"https://aternos.org/panel/ajax/stop.php",params={'SEC':self.sec},headers=self.reqheaders)
+            stopserver = self.open(url=f"https://aternos.org/panel/ajax/stop.php",params={'SEC':self.sec},headers=self.reqheaders)
             return "Server Stopped"
 
     def GetServerInfo(self):
